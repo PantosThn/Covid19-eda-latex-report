@@ -1,0 +1,167 @@
+% χαρακτηριστικά κειμένου
+\documentclass[11pt, a4paper]{article}
+% Χρήση γλωσσών
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{alphabeta}
+\usepackage[LGR, T1]{fontenc}
+\usepackage[parfill]{parskip}
+\usepackage{amssymb}
+
+
+\usepackage{amsmath}
+% Χρήση Εικόνων
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+%\usepackage{pgfplots}
+% Εξώφυλλο
+%\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{mwe}
+\usepackage{xcolor}
+\usepackage{gensymb}
+\usepackage{bm}
+\usepackage[most]{tcolorbox}
+
+\usepackage{minted}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+
+
+
+%\usepackage[explicit]{titlesec}
+%\usepackage{fourier}
+%\usepackage{tikz}
+%\usepackage{epigraph}
+%\usepgflibrary{qrr.shapes.openrectangle}
+
+
+
+%%% wglo turns glossaries on and off - for this purpose the package etoolbox is used
+\usepackage{etoolbox}
+\usepackage{framed}
+\providetoggle{wglo}
+\settoggle{wglo}{true}
+
+\iftoggle{wglo}{%
+ 
+    \usepackage[acronyms,nonumberlist]{glossaries-extra}
+    \setabbreviationstyle[acronym]{long-short}
+    \GlsXtrEnableEntryCounting{acronym}{0}
+    
+    \makeglossaries
+    \input{glossary.tex}
+}{%
+    \newcommand{\gls}[1]{#1}
+    \newcommand{\glspl}[1]{#1s}
+}
+
+\usepackage{nomencl}
+\makenomenclature
+%% This code creates the groups
+% -----------------------------------------
+\usepackage{etoolbox}
+\renewcommand\nomgroup[1]{
+  \item[\bfseries
+  \ifstrequal{#1}{V}{Variables}{
+  \ifstrequal{#1}{P}{Parameters}{
+  \ifstrequal{#1}{A}{Indices and Sets}{}}}]}
+% -----------------------------------------
+
+% -----------------------------------------
+\usepackage{libertine}
+
+\title{\textbf{National Technical University of Athens} \\
+School of Electrical \& Computer Engineering \\
+\textbf{Programming Tools and Technologies for Data Science 2020-21} \\
+Professors: \\ D. Fouskakis, N. Papaspyrou \\
+\textbf{Exploratory Data Analysis using R}\\}
+\author{Pantos Athanasios \\ Prospective MSc student \\ Α.Μ. ΕΔΕΜΜ: 03400026 \\
+e-mail: pantos.thn@gmail.com}
+
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=R,
+  backgroundcolor=\color{grey},
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+%%%%%test
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+
+
+\begin{document}
+
+    \maketitle
+    \thispagestyle{empty}
+    \begin{center}
+        \includegraphics[width=8cm]{images/ntua.png}
+    \end{center}
+    \break
+    \thispagestyle{empty}
+    \tableofcontents
+    
+    \listoffigures
+    
+    \listoftables
+    
+    \clearpage
+    \pagenumbering{arabic} 
+
+%\begin{center}
+    
+%\end{center}
+%\raggedright
+
+
+\newpage
+% στοίχιση δεξιά
+%\raggedright
+
+
+
+%\tableofcontents
+%\input{nomenclature.tex}
+\input{text.tex}
+%\input{results2.tex}
+%\input{conclusion.tex}
+
+
+
+%\newpage
+%\bibliographystyle{IEEEtran}
+%\bibliography{refs}
+\end{document}
